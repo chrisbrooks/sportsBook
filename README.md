@@ -9,7 +9,7 @@ sportsBook
 
 <ul>
 <li>CSS3</li>
-<li>-Jquery</li>
+<li>Jquery</li>
 <li>Javascript</li>
 <li>HTML5</li>
 <li>Responsive Design</li>
