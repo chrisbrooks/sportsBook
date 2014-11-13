@@ -1,0 +1,282 @@
+/* ---------------------------------------------------- */
+/*                        Header                        */
+/* ---------------------------------------------------- */
+
+// Colors
+$blue: #2789d0;
+$lightblue: lighten( $blue, 10% );
+$darkblue: darken( $blue, 10% );
+$white: #ffffff;
+$grey: #eaeaea;
+$black: #000;
+
+//media queries
+$mobile: 480px;
+
+.header {
+	background:$blue;
+	height: 43px;
+	text-align: center;
+	position: relative;
+	z-index:2;
+	.sports-title{
+		color: $white;
+		padding: 13px 0px;
+		font-size: 15px;
+		text-indent: 31px;
+	}
+	.menu {
+		display: block;
+		width: 32px;
+		height: 30px;
+		cursor:pointer;
+		text-indent: -9999px;
+		background: url(../images/menuicon.png) center center no-repeat;
+		padding:6px 5px 7px 10px;
+		border-right:1px solid $darkblue;
+		box-shadow: 1px 0px 0px $lightblue;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		-webkit-touch-callout: none;background-size: 25px;
+		position: absolute;
+		transition: all ease-in-out 0.2s;
+		z-index:1;
+		&.opened{
+			opacity:0;
+			z-index:0;
+		}
+	}
+	.back{
+		position: absolute;
+		opacity:0;
+		background: url(../images/arrow.png) center center no-repeat;
+		padding:6px 5px 7px 10px;
+		border-right:1px solid $darkblue;
+		box-shadow: 1px 0px 0px $lightblue;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		-webkit-touch-callout: none;background-size: 25px;
+		width: 32px;
+		height: 30px;
+		cursor:pointer;
+		text-indent: -9999px;
+		transition: all ease-in-out 0.2s;
+		&.opened{
+			opacity:1;
+			z-index:1;
+		}
+	}
+
+}
+
+/* ---------------------------------------------------- */
+/*                        Nav                           */
+/* ---------------------------------------------------- */
+
+nav{
+	ul{
+		transform: translate3d(0, -484px, 0);
+		transition: all ease-in-out 0.5s;
+		position: fixed;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		bottom:0px;
+		top:43px;
+		width:100%;
+		z-index: 1;
+		&.active{
+			//margin-top: 0px;
+			transform: translate3d(0px, 0, 0);
+		}
+		li{
+			clear: both;
+			list-style-type: none;
+			background: $darkblue;
+			padding: 14px 15px;
+			border-bottom:1px solid lighten($darkblue, 5%);
+			cursor: pointer;
+			background-size: cover;
+			cursor:pointer;x
+			&:last-child{
+				border-bottom:0px;
+			}
+		}
+	}
+}
+
+.full-story{
+	position: fixed;
+	transform: translate3d(100%, 0, 0);
+	transition: all ease-in-out 0.5s;
+	color: #000;
+	width: 100%;
+	top:43px;
+	bottom:10px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding: 12px 10px 0px 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	p{
+		margin-bottom:10px;
+	}
+	img{
+		width:100%;
+		height:100%;
+		margin:10px 0px;
+	}
+	h1{
+		font-size:20px;
+		margin-bottom:10px;
+	}
+	a{
+		text-decoration:none;
+		color: $blue;
+	}
+	iframe{
+		width:100%;
+		margin:10px 0px;
+	}
+	audio, canvas, video{
+		width:100%;
+	}
+	&.opened{
+		transform: translate3d(0, 0, 0);
+	}
+	&.opened.active{
+		transform: translate3d(0, 484px, 0);
+	}
+	.currentTrailText{
+		font-weight:bold;
+		margin-bottom:10px;
+		strong{
+			font-weight:bold;
+		}
+	}
+}
+
+/* ---------------------------------------------------- */
+/*                        Content                       */
+/* ---------------------------------------------------- */
+.content-wrapper{
+	transition:all ease-in-out 0.5s;
+	position: fixed;
+	top: 43px;
+	bottom: 10px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width:100%;
+	&.active{
+		transform: translate3d(0, 484px, 0);
+	}
+	&.opened{
+		transform: translate3d(-100%,0, 0);
+	}
+	.tab-content{
+		display: none;
+		&.current{
+			display: block;
+		}
+		.news-story{
+			padding: 12px 10px 0px 10px;
+			.story{
+				clear: both;
+				margin-bottom: 10px;
+				font-family: sans-serif;
+				border-bottom: 1px solid $grey;
+				padding-bottom: 10px;
+				cursor: pointer;
+				width: 100%;
+				img{
+					margin-left: -24px;
+					&.no-pic{
+						margin-left:0px;
+						width:100%;
+					}
+				}
+				&:last-child{
+					margin-bottom: 0px;
+					border-bottom: none;
+				}
+				.head-container{
+					clear: both;
+					display: inline-block;
+					height: 84px;
+					width:100%;
+					position: relative;
+					.image-container{
+						height: 84px;
+						overflow: hidden;
+						border-radius: 3px;
+						float: left;
+						margin-right: 10px;
+						width:84px;
+						position: absolute;
+						left:0px;
+						top:0px;
+						.no-story-error{
+							position: absolute;
+							width: 100%;
+							background: $black;
+							opacity: 0.7;
+							text-align: center;
+							font-size: 11px;
+							padding: 2px 0px;
+							text-decoration: none;
+							color: $white;
+						}
+					}
+					.content-container{
+						margin-left:94px;
+						color:$black;
+						.pub-time{
+							color:#999;
+						}
+						.trailing-content{
+							margin-top:6px;
+						}
+						.pub-date{
+							color: #98b721;
+							margin-right:5px;
+							float:left;
+						}
+						.web-title{
+							margin-bottom:6px;
+							font-weight: bold;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ---------------------------------------------------- */
+/*                        Loading Icon                  */
+/* ---------------------------------------------------- */
+
+.loading {
+	height: 50px;
+	width: 50px;
+	white-space: nowrap;
+	overflow: hidden;
+	background-size: 50px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-25px;
+	display: none;
+	background:url(../images/spinner.png);
+	-webkit-animation-name: spinnerRotate;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes spinnerRotate {
+	from {
+		-webkit-transform:rotate(0deg);
+	}
+	to {
+		-webkit-transform:rotate(360deg);
+	}
+}

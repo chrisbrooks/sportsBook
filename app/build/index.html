@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width, user-scalable=no" name="viewport">
+		<link href="styles/app.css" rel="stylesheet">
+	</head>
+<body>
+	<div class="container">
+	<header class="header">
+		<div class="menu"></div>
+		<div class="back">back</div>
+		<p class="sports-title">Sports News</p>
+	</header>
+	<nav>
+		<ul class="tabs">
+			<li class="tab-link current" data-role="sport" data-tab="1"><p>Sports</p></li>
+			<li class="tab-link" data-role="football" data-tab="2"><p>Football</p></li>
+			<li class="tab-link" data-role="tennis" data-tab="3"><p>Tennis</p></li>
+			<li class="tab-link" data-role="rugby-union" data-tab="4"><p>Rugby Union</p></li>
+			<li class="tab-link" data-role="rugbyleague" data-tab="5"><p>Rugby League</p></li>
+			<li class="tab-link" data-role="boxing" data-tab="6"><p>Boxing</p></li>
+			<li class="tab-link" data-role="cricket" data-tab="7"><p>Cricket</p></li>
+			<li class="tab-link" data-role="golf" data-tab="8"><p>Golf</p></li>
+			<li class="tab-link" data-role="formula-one-2014" data-tab="9"><p>Forumla 1</p></li>
+			<li class="tab-link" data-role="cycling" data-tab="10"><p>Cycling</p></li>
+			<li class="tab-link" data-role="horse-racing" data-tab="11"><p>Horse Racing</p></li>
+		</ul>
+	</nav>
+	<section class="content-wrapper">
+		<div class="tab-content current" id="1">
+			<div class="sports-news news-story"></div>
+		</div>
+
+		<div class="tab-content" id="2">
+			<div class="football-news news-story"></div>
+		</div>
+
+		<div class="tab-content" id="3">
+			<div class="tennis-news news-story"></div>
+		</div>
+
+		<div class="tab-content" id="4">
+			<div class="rugby-union-news news-story"></div>
+		</div>
+
+		<div class="tab-content" id="5">
+			<div class="rugby-league-news news-story"></div>
+		</div>
+
+		<div class="tab-content" id="6">
+			<div class="boxing-news news-story"></div>
+		</div>
+
+		<div class="tab-content" id="7">
+			<div class="cricket-news news-story"></div>
+		</div>
+
+		<div class="tab-content" id="8">
+			<div class="golf-news news-story"></div>
+		</div>
+
+		<div class="tab-content" id="9">
+			<div class="f1-news news-story"></div>
+		</div>
+
+		<div class="tab-content" id="10">
+			<div class="cycling-news news-story"></div>
+		</div>
+
+		<div class="tab-content" id="11">
+			<div class="racing-news news-story"></div>
+		</div>
+	</section>
+	<section class="full-story"></section>
+</div>
+	<script src="scripts/combined.min.js" type="text/javascript"></script>
+	<script id="headlines-success" type="text/x-handlebars-template">
+		<div class="story">
+			<div class="head-container">
+				<div class="image-container">
+					{{#if fields.body}}
+					{{else}}
+					<a class="no-story-error" target="_blank" href="{{#fields}}{{{shortUrl}}}{{/fields}}">External Link</a>
+					{{/if}}
+					{{#if fields.thumbnail}}
+						{{#fields}} <img src="{{thumbnail}}"> {{/fields}}
+					{{else}}
+						<img class="no-pic" src="../images/noPic.jpg">
+					{{/if}}
+				</div>
+				<div class="content-container">
+					<p class="web-title">{{#fields}} {{{headline}}} {{/fields}}</p>
+					<p class="pub-date">{{{newDate}}}</p>
+					<p class="pub-time">{{{newTime}}}</p>
+					<p class="trailing-content">{{#fields}} {{{trailText}}} {{/fields}}</p>
+				</div>
+			</div>
+		</div>
+	</script>
+</body>
+</html>
