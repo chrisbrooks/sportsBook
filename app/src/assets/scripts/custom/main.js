@@ -164,6 +164,8 @@
 			$('ul.tabs li').on('click', function() {
 				var item = $(this);
 				menuClick(item);
+				$('.sports-title').empty();
+				$('.sports-title').append($(this).find('p').html() + ' News');
 			});
 		});
 	};
