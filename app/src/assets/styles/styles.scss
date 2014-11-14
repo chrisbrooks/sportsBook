@@ -39,6 +39,7 @@ $mobile: 480px;
 		-webkit-touch-callout: none;background-size: 25px;
 		position: absolute;
 		transition: all ease-in-out 0.2s;
+		-webkit-transition: all ease-in-out 0.2s;
 		z-index:1;
 		&.opened{
 			opacity:0;
@@ -59,6 +60,7 @@ $mobile: 480px;
 		cursor:pointer;
 		text-indent: -9999px;
 		transition: all ease-in-out 0.2s;
+		-webkit-transition: all ease-in-out 0.2s;
 		&.opened{
 			opacity:1;
 			z-index:1;
@@ -75,6 +77,9 @@ nav{
 	ul{
 		transform: translate3d(0, -484px, 0);
 		transition: all ease-in-out 0.5s;
+		-webkit-transform: translate3d(0, -484px, 0);
+		-webkit-transition: all ease-in-out 0.5s;
+
 		position: fixed;
 		overflow-y: scroll;
 		overflow-x: hidden;
@@ -84,7 +89,9 @@ nav{
 		z-index: 1;
 		&.active{
 			//margin-top: 0px;
+			-webkit-transform: translate3d(0px, 0, 0);
 			transform: translate3d(0px, 0, 0);
+			opacity:1;
 		}
 		li{
 			clear: both;
@@ -106,6 +113,8 @@ nav{
 	position: fixed;
 	transform: translate3d(100%, 0, 0);
 	transition: all ease-in-out 0.5s;
+	-webkit-transform: translate3d(100%, 0, 0);
+	-webkit-transition: all ease-in-out 0.5s;
 	color: #000;
 	width: 100%;
 	top:43px;
@@ -141,9 +150,11 @@ nav{
 	}
 	&.opened{
 		transform: translate3d(0, 0, 0);
+		-webkit-transform: translate3d(0, 0, 0);
 	}
 	&.opened.active{
 		transform: translate3d(0, 484px, 0);
+		-webkit-transform: translate3d(0, 484px, 0);
 	}
 	.currentTrailText{
 		font-weight:bold;
@@ -159,6 +170,7 @@ nav{
 /* ---------------------------------------------------- */
 .content-wrapper{
 	transition:all ease-in-out 0.5s;
+	-webkit-transition:all ease-in-out 0.5s;
 	position: fixed;
 	top: 43px;
 	bottom: 10px;
@@ -166,10 +178,10 @@ nav{
 	overflow-x: hidden;
 	width:100%;
 	&.active{
-		transform: translate3d(0, 484px, 0);
+		-webkit-transform: translate3d(0, 484px, 0);
 	}
 	&.opened{
-		transform: translate3d(-100%,0, 0);
+		-webkit-transform: translate3d(-100%,0, 0);
 	}
 	.tab-content{
 		display: none;
@@ -270,6 +282,10 @@ nav{
 	-webkit-animation-duration: 1s;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: linear;
+	animation-name: spinnerRotate;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 
 @-webkit-keyframes spinnerRotate {
@@ -278,5 +294,13 @@ nav{
 	}
 	to {
 		-webkit-transform:rotate(360deg);
+	}
+}
+keyframes spinnerRotate {
+	from {
+		transform:rotate(0deg);
+	}
+	to {
+			transform:rotate(360deg);
 	}
 }

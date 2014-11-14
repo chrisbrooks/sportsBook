@@ -57,14 +57,14 @@
 			var results = data.response.results;
 
 			for (var i = 0; i < results.length; i += 1) {
-				DateTime(data, i, results);
+				dateTime(data, i, results);
 				headlineSuccess(results[i]);
 			}
 
 			fullStory(data);
 		}
 
-		function DateTime(data, i, results){
+		function dateTime(data, i, results){
 
 			var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 			var timeDate = results[i].webPublicationDate,
