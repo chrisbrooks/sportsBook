@@ -13,11 +13,21 @@
 				difference,
 				numminutes;
 
-			if (storedData) { // if storedData is not null or undefined, it exists, so we can check time difference without causing an error
+			if (storedData) {
 				currentTime = new Date();
-				storedTime = new Date(storedData.storedTime); // this line was breaking it because storedData.storedTime didn't exist on first visit or after clearing localStorage
+				storedTime = new Date(storedData.storedTime);
 				difference = currentTime - storedTime;
 				numminutes = Math.round(((difference % 86400000) % 3600000) / 60000);
+			}
+
+			//live blogging refresh
+			if(storedData){
+				var results = storedData.response.results;
+				for (var i = 0; i < results.length; i += 1) {
+					if(results[i].fields.liveBloggingNow === "true" && numminutes > 0){
+						ajaxcall(searchurl);
+					}
+				}
 			}
 
 			if (storedData && numminutes < 10) {
@@ -98,6 +108,17 @@
 					storyLink.attr("target", "_blank");
 					window.open(storyLink.attr("href"));
 				}
+
+				//$('.element-tweet').html('<blockquote class="twitter-tweet" lang="en-gb"><p><a href="https://twitter.com/Cricketbatcat/statuses/533141807689781249">November 14, 2014</a></blockquote>');
+
+					if($(".twitter-tweet").length > 0){
+						if (typeof (twttr) != 'undefined') {
+							twttr.widgets.load();
+						} else {
+							$.getScript('http://platform.twitter.com/widgets.js');
+						}
+					}
+
 
 			});
 		}

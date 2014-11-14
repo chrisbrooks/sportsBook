@@ -79,10 +79,12 @@
 		<div class="story">
 			<div class="head-container">
 				<div class="image-container">
-					{{#if fields.body}}
-					{{else}}
-					<a class="no-story-error" target="_blank" href="{{#fields}}{{{shortUrl}}}{{/fields}}">External Link</a>
-					{{/if}}
+					{{#unless fields.body}}
+						<a class="no-story-error" target="_blank" href="{{#fields}}{{{shortUrl}}}{{/fields}}">External Link</a>
+					{{/unless}}
+					{{#ifCond fields.liveBloggingNow "true"}}
+						<div class="live-blogging">live</div>
+					{{/ifCond}}
 					{{#if fields.thumbnail}}
 						{{#fields}} <img src="{{thumbnail}}"> {{/fields}}
 					{{else}}
@@ -97,6 +99,14 @@
 				</div>
 			</div>
 		</div>
+	</script>
+	<script>
+		Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+			if(v1 === v2) {
+				return options.fn(this);
+			}
+			return options.inverse(this);
+		});
 	</script>
 </body>
 </html>

@@ -85,7 +85,7 @@ $mobile: 480px;
 
 nav{
 	ul{
-		@include translate3d(0, -484px, 0);
+		@include translate3d(0, -517px, 0);
 		@include transition(all, 0.5s, ease-in-out);
 		position: fixed;
 		overflow-y: scroll;
@@ -149,11 +149,33 @@ nav{
 	audio, canvas, video{
 		width:100%;
 	}
+	.block{
+		background: #f4f4f4;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 3px;
+		&.is-key-event{
+			h2{
+				margin-bottom:10px;
+				color:#69cd18;
+			}
+		}
+		.block-time{
+			time,span{
+				font-weight:bold;
+			}
+		}
+	}
+	.element-tweet{
+		iframe{
+			width:100% !important;
+		}
+	}
 	&.opened{
 		@include translate3d(0, 0, 0);
 	}
 	&.opened.active{
-		@include translate3d(0, 484px, 0);
+		@include translate3d(0, 517px, 0);
 	}
 	.currentTrailText{
 		font-weight:bold;
@@ -176,7 +198,7 @@ nav{
 	overflow-x: hidden;
 	width:100%;
 	&.active{
-		@include translate3d(0, 484px, 0);
+		@include translate3d(0, 517px, 0);
 	}
 	&.opened{
 		@include translate3d(-100%,0, 0);
@@ -223,6 +245,15 @@ nav{
 						position: absolute;
 						left:0px;
 						top:0px;
+						.live-blogging{
+							position: absolute;
+							top: 0px;
+							left: 0px;
+							background: red;
+							padding: 2px 4px;
+							font-size: 12px;
+							text-transform: uppercase;
+						}
 						.no-story-error{
 							position: absolute;
 							width: 100%;
@@ -245,7 +276,7 @@ nav{
 							margin-top:6px;
 						}
 						.pub-date{
-							color: #98b721;
+							color: #69cd18;
 							margin-right:5px;
 							float:left;
 						}
