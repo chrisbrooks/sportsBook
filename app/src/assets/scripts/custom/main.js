@@ -20,15 +20,13 @@
 				numminutes = Math.round(((difference % 86400000) % 3600000) / 60000);
 			}
 
-			//live blogging refresh
-			if(storedData){
-				var results = storedData.response.results;
-				for (var i = 0; i < results.length; i += 1) {
-					if(results[i].fields.liveBloggingNow === "true" && numminutes > 0){
-						ajaxcall(searchurl);
-					}
-				}
-			}
+			//var results = storedData.response.results;
+			//	for (var i = 0; i < results.length; i += 1) {
+			//		if(results[i].fields.liveBloggingNow === "true" && numminutes > 0){
+			//			ajaxcall(searchurl);
+			//			console.log('live');
+			//		}
+			//	}
 
 			if (storedData && numminutes < 10) {
 				goDataGo(storedData);
