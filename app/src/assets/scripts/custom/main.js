@@ -28,6 +28,12 @@
 			//		}
 			//	}
 
+			//if(storedData){
+			//	if(storedData.response.results['webTitle']){
+			//		console.log('yup');
+			//	}
+			//}
+
 			if (storedData && numminutes < 10) {
 				goDataGo(storedData);
 			} else {
@@ -169,5 +175,7 @@
 	};
 
 	methods.init();
+
+	FastClick.attach(document.body);
 
 }(window, jQuery));

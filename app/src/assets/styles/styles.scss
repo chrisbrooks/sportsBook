@@ -48,7 +48,8 @@ $mobile: 480px;
 		border-right:1px solid $darkblue;
 		box-shadow: 1px 0px 0px $lightblue;
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
-		-webkit-touch-callout: none;background-size: 25px;
+		-webkit-touch-callout: none;
+		background-size: 25px;
 		position: absolute;
 		@include transition(all, 0.2s, ease-in-out);
 		z-index:1;
@@ -65,7 +66,8 @@ $mobile: 480px;
 		border-right:1px solid $darkblue;
 		box-shadow: 1px 0px 0px $lightblue;
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
-		-webkit-touch-callout: none;background-size: 25px;
+		-webkit-touch-callout: none;
+		background-size: 25px;
 		width: 32px;
 		height: 30px;
 		cursor:pointer;
@@ -126,6 +128,9 @@ nav{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	-webkit-overflow-scrolling: touch;
+	-moz-overflow-scrolling: touch;
+	overflow-scrolling: touch;
 	p{
 		margin-bottom:10px;
 	}
@@ -197,6 +202,9 @@ nav{
 	overflow-y: scroll;
 	overflow-x: hidden;
 	width:100%;
+	-webkit-overflow-scrolling: touch;
+	-moz-overflow-scrolling: touch;
+	overflow-scrolling: touch;
 	&.active{
 		@include translate3d(0, 517px, 0);
 	}
@@ -218,6 +226,8 @@ nav{
 				padding-bottom: 10px;
 				cursor: pointer;
 				width: 100%;
+				-webkit-tap-highlight-color: rgba(0,0,0,0);
+				-webkit-touch-callout: none;
 				img{
 					margin-left: -24px;
 					&.no-pic{
@@ -230,10 +240,6 @@ nav{
 					border-bottom: none;
 				}
 				.head-container{
-					clear: both;
-					display: inline-block;
-					height: 84px;
-					width:100%;
 					position: relative;
 					.image-container{
 						height: 84px;
