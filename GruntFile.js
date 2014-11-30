@@ -3,6 +3,7 @@ var scriptsList = {
 		'app/src/assets/scripts/vendor/jquery-1.11.0.min.js',
 		'app/src/assets/scripts/vendor/jquery.easing.1.3.js',
 		'app/src/assets/scripts/vendor/fastclick.js',
+		'app/src/assets/scripts/vendor/iscroll.js',
 		'app/src/assets/scripts/vendor/handlebars-v1.3.0.js',
 		'app/src/assets/scripts/custom/main.js',
 	]

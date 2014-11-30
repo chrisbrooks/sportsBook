@@ -20,20 +20,6 @@
 				numminutes = Math.round(((difference % 86400000) % 3600000) / 60000);
 			}
 
-			//var results = storedData.response.results;
-			//	for (var i = 0; i < results.length; i += 1) {
-			//		if(results[i].fields.liveBloggingNow === "true" && numminutes > 0){
-			//			ajaxcall(searchurl);
-			//			console.log('live');
-			//		}
-			//	}
-
-			//if(storedData){
-			//	if(storedData.response.results['webTitle']){
-			//		console.log('yup');
-			//	}
-			//}
-
 			if (storedData && numminutes < 10) {
 				goDataGo(storedData);
 			} else {
@@ -43,12 +29,11 @@
 
 		function ajaxcall(searchurl) {
 			$.ajax({
-				type: "POST",
-				url: 'http://content.guardianapis.com/search?api-key=5vk4jfy7myw4rdgfhg2hx7tn&show-fields=all&order-by=newest&q='+ searchurl +'&ion=sport',
+				type: 'POST',
+				url: 'http://content.guardianapis.com/search?api-key=5vk4jfy7myw4rdgfhg2hx7tn&show-fields=all&order-by=newest&section=' + searchurl + '',
 				dataType: 'JSONP',
 				success: function(data) {
 					data.storedTime = new Date();
-
 					localStorage.setItem(searchurl, JSON.stringify(data));
 
 					if ($('ul.tabs li').hasClass('current')) {
@@ -96,7 +81,6 @@
 
 		function fullStory(data){
 			$('.story').on('click', function() {
-				$(window).scrollTop('0px');
 				var index = $(this).index(),
 					results = data.response.results[index],
 					currentStory = results.fields.body,
@@ -113,17 +97,13 @@
 					window.open(storyLink.attr("href"));
 				}
 
-				//$('.element-tweet').html('<blockquote class="twitter-tweet" lang="en-gb"><p><a href="https://twitter.com/Cricketbatcat/statuses/533141807689781249">November 14, 2014</a></blockquote>');
-
-					if($(".twitter-tweet").length > 0){
-						if (typeof (twttr) != 'undefined') {
-							twttr.widgets.load();
-						} else {
-							$.getScript('http://platform.twitter.com/widgets.js');
-						}
+				if($(".twitter-tweet").length > 0){
+					if (typeof (twttr) != 'undefined') {
+						twttr.widgets.load();
+					} else {
+						$.getScript('http://platform.twitter.com/widgets.js');
 					}
-
-
+				}
 			});
 		}
 
@@ -148,14 +128,14 @@
 			}
 
 			$('.header p.sportstitle').empty();
-			$('.header p.sportstitle').append(item.find('p').html() + ' News');
+			$('.header p.sportstitle').append(item.find('p').html());
 		}
 
 		$(document).ready(function() {
-			datastorage('sport');
+			datastorage('news');
 
 			$('.menu, ul li').on('click', function() {
-				$('ul, .menu, .content-wrapper, .full-story').toggleClass('active');
+				$('nav, .menu, .content-wrapper, .full-story').toggleClass('active');
 			});
 
 			$('.back').on('click', function() {
@@ -169,7 +149,7 @@
 				var item = $(this);
 				menuClick(item);
 				$('.sports-title').empty();
-				$('.sports-title').append($(this).find('p').html() + ' News');
+				$('.sports-title').append($(this).find('p').html());
 			});
 		});
 	};

@@ -27,24 +27,23 @@ $mobile: 480px;
 
 .header {
 	background:$blue;
-	height: 43px;
+	height: 50px;
 	text-align: center;
 	position: relative;
 	z-index:2;
 	.sports-title{
 		color: $white;
-		padding: 13px 0px;
+		padding: 16px 0px;
 		font-size: 15px;
-		text-indent: 31px;
 	}
 	.menu {
 		display: block;
 		width: 32px;
-		height: 30px;
+		height: 37px;
 		cursor:pointer;
 		text-indent: -9999px;
 		background: url(../images/menuicon.png) center center no-repeat;
-		padding:6px 5px 7px 10px;
+		padding:6px 10px 7px 12px;
 		border-right:1px solid $darkblue;
 		box-shadow: 1px 0px 0px $lightblue;
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -63,7 +62,7 @@ $mobile: 480px;
 		position: absolute;
 		opacity:0;
 		background: url(../images/arrow.png) center center no-repeat;
-		padding:6px 5px 7px 10px;
+		padding:6px 10px 7px 12px;
 		border-right:1px solid $darkblue;
 		box-shadow: 1px 0px 0px $lightblue;
 		-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -71,7 +70,7 @@ $mobile: 480px;
 		-webkit-touch-callout: none;
 		background-size: 25px;
 		width: 32px;
-		height: 30px;
+		height: 37px;
 		cursor:pointer;
 		text-indent: -9999px;
 		@include transition(all, 0.2s, ease-in-out);
@@ -88,18 +87,30 @@ $mobile: 480px;
 /* ---------------------------------------------------- */
 
 nav{
-	ul{
-		@include translate3d(0, -517px, 0);
+	@include translate3d(0, -377px, 0);
 		@include transition(all, 0.5s, ease-in-out);
 		position: fixed;
 		overflow-y: scroll;
 		overflow-x: hidden;
+		top:50px;
 		bottom:0px;
-		top:43px;
 		width:100%;
+		max-height:376px;
+		&::-webkit-scrollbar {
+		    width: 10px;
+		    height: 10px;
+		    border-bottom: 1px solid $darkblue;
+		    border-top: 1px solid $darkblue;
+		    background:$darkblue;
+		}
+		&::-webkit-scrollbar-thumb {
+		    background-color: darken( $darkblue, 10% );
+		    border: 3px solid $darkblue;
+		}
 		&.active{
 			@include translate3d(0, 0, 0);
 		}
+	ul.tabs{
 		li{
 			clear: both;
 			list-style-type: none;
@@ -122,9 +133,8 @@ nav{
 	@include transition(all, 0.5s, ease-in-out);
 	color: #000;
 	width: 100%;
-	top:43px;
-	bottom:10px;
-	overflow-y: scroll;
+	top:50px;
+	bottom:0px;
 	overflow-x: hidden;
 	padding: 12px 10px 0px 10px;
 	-webkit-box-sizing: border-box;
@@ -133,6 +143,18 @@ nav{
 	-webkit-overflow-scrolling: touch;
 	-moz-overflow-scrolling: touch;
 	overflow-scrolling: touch;
+	&::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+		border-bottom: 1px solid #fff;
+		border-top: 1px solid #fff;
+		background:#fff;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 2px;
+		background-color: #C3C3C3;
+		border: 3px solid #fff;
+	}
 	p{
 		margin-bottom:10px;
 	}
@@ -144,6 +166,7 @@ nav{
 	h1{
 		font-size:20px;
 		margin-bottom:10px;
+		line-height:normal;
 	}
 	a{
 		text-decoration:none;
@@ -182,7 +205,7 @@ nav{
 		@include translate3d(0, 0, 0);
 	}
 	&.opened.active{
-		@include translate3d(0, 517px, 0);
+		@include translate3d(0, 376px, 0);
 	}
 	.currentTrailText{
 		font-weight:bold;
@@ -199,16 +222,27 @@ nav{
 .content-wrapper{
 	@include transition(all, 0.5s, ease-in-out);
 	position: fixed;
-	top: 43px;
-	bottom: 10px;
-	overflow-y: scroll;
+	top: 50px;
+	bottom: 0px;
 	overflow-x: hidden;
 	width:100%;
 	-webkit-overflow-scrolling: touch;
 	-moz-overflow-scrolling: touch;
 	overflow-scrolling: touch;
+	&::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+		border-bottom: 1px solid #fff;
+		border-top: 1px solid #fff;
+		background:#fff;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 2px;
+		background-color: #C3C3C3;
+		border: 3px solid #fff;
+	}
 	&.active{
-		@include translate3d(0, 517px, 0);
+		@include translate3d(0, 376px, 0);
 	}
 	&.opened{
 		@include translate3d(-100%,0, 0);
@@ -228,6 +262,7 @@ nav{
 				padding-bottom: 10px;
 				cursor: pointer;
 				width: 100%;
+				min-height:84px;
 				-webkit-tap-highlight-color: rgba(0,0,0,0);
 				-webkit-tap-highlight-color: transparent;
 				-webkit-touch-callout: none;

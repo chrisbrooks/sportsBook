@@ -302,6 +302,8 @@ input[type="radio"] {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box; }
 
@@ -346,23 +348,22 @@ table {
 /* ---------------------------------------------------- */
 .header {
   background: #2789d0;
-  height: 43px;
+  height: 50px;
   text-align: center;
   position: relative;
   z-index: 2; }
   .header .sports-title {
     color: #ffffff;
-    padding: 13px 0px;
-    font-size: 15px;
-    text-indent: 31px; }
+    padding: 16px 0px;
+    font-size: 15px; }
   .header .menu {
     display: block;
     width: 32px;
-    height: 30px;
+    height: 37px;
     cursor: pointer;
     text-indent: -9999px;
     background: url(../images/menuicon.png) center center no-repeat;
-    padding: 6px 5px 7px 10px;
+    padding: 6px 10px 7px 12px;
     border-right: 1px solid #1f6da5;
     box-shadow: 1px 0px 0px #4ca1de;
     -webkit-tap-highlight-color: transparent;
@@ -371,6 +372,7 @@ table {
     background-size: 25px;
     position: absolute;
     -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     z-index: 1; }
     .header .menu.opened {
@@ -380,7 +382,7 @@ table {
     position: absolute;
     opacity: 0;
     background: url(../images/arrow.png) center center no-repeat;
-    padding: 6px 5px 7px 10px;
+    padding: 6px 10px 7px 12px;
     border-right: 1px solid #1f6da5;
     box-shadow: 1px 0px 0px #4ca1de;
     -webkit-tap-highlight-color: transparent;
@@ -388,10 +390,11 @@ table {
     -webkit-touch-callout: none;
     background-size: 25px;
     width: 32px;
-    height: 30px;
+    height: 37px;
     cursor: pointer;
     text-indent: -9999px;
     -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out; }
     .header .back.opened {
       opacity: 1;
@@ -400,25 +403,34 @@ table {
 /* ---------------------------------------------------- */
 /*                        Nav                           */
 /* ---------------------------------------------------- */
-nav ul {
-  -ms-transform: translate3D(0, -517px, 0);
-      transform: translate3D(0, -517px, 0);
-  -moz-transform: translate3D(0, -517px, 0);
-  -webkit-transform: translate3D(0, -517px, 0);
+nav {
+  transform: translate3D(0, -377px, 0);
+  -moz-transform: translate3D(0, -377px, 0);
+  -webkit-transform: translate3D(0, -377px, 0);
   -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   position: fixed;
   overflow-y: scroll;
   overflow-x: hidden;
+  top: 50px;
   bottom: 0px;
-  top: 43px;
-  width: 100%; }
-  nav ul.active {
-    -ms-transform: translate3D(0, 0, 0);
-        transform: translate3D(0, 0, 0);
+  width: 100%;
+  max-height: 376px; }
+  nav::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid #1f6da5;
+    border-top: 1px solid #1f6da5;
+    background: #1f6da5; }
+  nav::-webkit-scrollbar-thumb {
+    background-color: #17507a;
+    border: 3px solid #1f6da5; }
+  nav.active {
+    transform: translate3D(0, 0, 0);
     -moz-transform: translate3D(0, 0, 0);
     -webkit-transform: translate3D(0, 0, 0); }
-  nav ul li {
+  nav ul.tabs li {
     clear: both;
     list-style-type: none;
     background: #1f6da5;
@@ -428,28 +440,39 @@ nav ul {
     background-size: cover;
     cursor: pointer; }
     x
-    nav ul li:last-child {
+    nav ul.tabs li:last-child {
       border-bottom: 0px; }
 
 .full-story {
   position: fixed;
-  -ms-transform: translate3D(100%, 0, 0);
-      transform: translate3D(100%, 0, 0);
+  transform: translate3D(100%, 0, 0);
   -moz-transform: translate3D(100%, 0, 0);
   -webkit-transform: translate3D(100%, 0, 0);
   -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   color: #000;
   width: 100%;
-  top: 43px;
-  bottom: 10px;
-  overflow-y: scroll;
+  top: 50px;
+  bottom: 0px;
   overflow-x: hidden;
   padding: 12px 10px 0px 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
   -moz-overflow-scrolling: touch;
   overflow-scrolling: touch; }
+  .full-story::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    background: #fff; }
+  .full-story::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #C3C3C3;
+    border: 3px solid #fff; }
   .full-story p {
     margin-bottom: 10px; }
   .full-story img {
@@ -458,7 +481,8 @@ nav ul {
     margin: 10px 0px; }
   .full-story h1 {
     font-size: 20px;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    line-height: normal; }
   .full-story a {
     text-decoration: none;
     color: #2789d0; }
@@ -480,15 +504,13 @@ nav ul {
   .full-story .element-tweet iframe {
     width: 100% !important; }
   .full-story.opened {
-    -ms-transform: translate3D(0, 0, 0);
-        transform: translate3D(0, 0, 0);
+    transform: translate3D(0, 0, 0);
     -moz-transform: translate3D(0, 0, 0);
     -webkit-transform: translate3D(0, 0, 0); }
   .full-story.opened.active {
-    -ms-transform: translate3D(0, 517px, 0);
-        transform: translate3D(0, 517px, 0);
-    -moz-transform: translate3D(0, 517px, 0);
-    -webkit-transform: translate3D(0, 517px, 0); }
+    transform: translate3D(0, 376px, 0);
+    -moz-transform: translate3D(0, 376px, 0);
+    -webkit-transform: translate3D(0, 376px, 0); }
   .full-story .currentTrailText {
     font-weight: bold;
     margin-bottom: 10px; }
@@ -500,24 +522,32 @@ nav ul {
 /* ---------------------------------------------------- */
 .content-wrapper {
   -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   position: fixed;
-  top: 43px;
-  bottom: 10px;
-  overflow-y: scroll;
+  top: 50px;
+  bottom: 0px;
   overflow-x: hidden;
   width: 100%;
   -webkit-overflow-scrolling: touch;
   -moz-overflow-scrolling: touch;
   overflow-scrolling: touch; }
+  .content-wrapper::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    background: #fff; }
+  .content-wrapper::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #C3C3C3;
+    border: 3px solid #fff; }
   .content-wrapper.active {
-    -ms-transform: translate3D(0, 517px, 0);
-        transform: translate3D(0, 517px, 0);
-    -moz-transform: translate3D(0, 517px, 0);
-    -webkit-transform: translate3D(0, 517px, 0); }
+    transform: translate3D(0, 376px, 0);
+    -moz-transform: translate3D(0, 376px, 0);
+    -webkit-transform: translate3D(0, 376px, 0); }
   .content-wrapper.opened {
-    -ms-transform: translate3D(-100%, 0, 0);
-        transform: translate3D(-100%, 0, 0);
+    transform: translate3D(-100%, 0, 0);
     -moz-transform: translate3D(-100%, 0, 0);
     -webkit-transform: translate3D(-100%, 0, 0); }
   .content-wrapper .tab-content {
@@ -534,6 +564,7 @@ nav ul {
         padding-bottom: 10px;
         cursor: pointer;
         width: 100%;
+        min-height: 84px;
         -webkit-tap-highlight-color: transparent;
         -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none; }
@@ -609,14 +640,10 @@ nav ul {
   -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
-  -webkit-animation-name: spinnerRotate;
-          animation-name: spinnerRotate;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear; }
+  animation-name: spinnerRotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
 
 @-webkit-keyframes spinnerRotate {
   from {
@@ -624,10 +651,8 @@ nav ul {
   to {
     -webkit-transform: rotate(360deg); } }
 keyframes spinnerRotate from {
-  -webkit-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-          transform: rotate(0deg); }
+  transform: rotate(0deg); }
 keyframes spinnerRotate to {
-  -webkit-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-          transform: rotate(360deg); }
+  transform: rotate(360deg); }
+
+/*# sourceMappingURL=app.css.map */
