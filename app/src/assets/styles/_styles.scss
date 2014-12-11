@@ -88,28 +88,29 @@ $mobile: 480px;
 
 nav{
 	@include translate3d(0, -377px, 0);
-		@include transition(all, 0.5s, ease-in-out);
-		position: fixed;
-		overflow-y: scroll;
-		overflow-x: hidden;
-		top:50px;
-		bottom:0px;
-		width:100%;
-		max-height:376px;
-		&::-webkit-scrollbar {
-		    width: 10px;
-		    height: 10px;
-		    border-bottom: 1px solid $darkblue;
-		    border-top: 1px solid $darkblue;
-		    background:$darkblue;
-		}
-		&::-webkit-scrollbar-thumb {
-		    background-color: darken( $darkblue, 10% );
-		    border: 3px solid $darkblue;
-		}
-		&.active{
-			@include translate3d(0, 0, 0);
-		}
+	@include transition(all, 0.5s, ease-in-out);
+	position: fixed;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	top:50px;
+	bottom:0px;
+	width:100%;
+	max-height:376px;
+	z-index:1;
+	&::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+		border-bottom: 1px solid $darkblue;
+		border-top: 1px solid $darkblue;
+		background:$darkblue;
+	}
+	&::-webkit-scrollbar-thumb {
+	    background-color: darken( $darkblue, 10% );
+	    border: 3px solid $darkblue;
+	}
+	&.active{
+		@include translate3d(0, 0, 0);
+	}
 	ul.tabs{
 		li{
 			clear: both;
@@ -350,6 +351,7 @@ nav{
 	top:50%;
 	margin-left:-25px;
 	display: none;
+	z-index:0;
 	background:url(../images/spinner.png);
 	-webkit-animation-name: spinnerRotate;
 	-webkit-animation-duration: 1s;
